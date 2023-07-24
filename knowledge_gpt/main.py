@@ -83,9 +83,11 @@ if button or st.session_state.get("submit"):
         st.session_state["submit"] = True
         # Output Columns
         answer_col, sources_col = st.columns(2)
+        st.write(f"---index---{index}---{query}")
         sources = search_docs(index, query)
 
         try:
+            st.write(f"---sources---{sources}")
             answer = get_answer(sources, query)
             if not show_all_chunks:
                 # Get the sources for the answer
